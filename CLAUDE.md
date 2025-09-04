@@ -1,6 +1,6 @@
 # Claude Code Configuration
 
-# DBM Host
+# Rubato Host
 
 React application with Module Federation using Vite.
 
