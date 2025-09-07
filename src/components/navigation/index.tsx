@@ -14,7 +14,7 @@ import {
 const items = [
   {
     title: "리뷰 생성기",
-    url: "/",
+    url: "/reviews",
     icon: MessageSquareMore,
   },
 ];
@@ -25,15 +25,17 @@ const Navigation = () => {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" tooltip="홈">
-              <img
-                src="./logo.webp"
-                alt="rubato logo"
-                loading="lazy"
-                width={30}
-                height={30}
-                className="me-1 rounded-[5px] transition-all group-data-collapsible:size-7 group-data-[collapsible=icon]:size-8"
-              />
+            <SidebarMenuButton size="lg" tooltip="홈" asChild>
+              <a href="/">
+                <img
+                  src="./logo.webp"
+                  alt="rubato logo"
+                  loading="lazy"
+                  width={30}
+                  height={30}
+                  className="me-1 rounded-[5px] transition-all group-data-collapsible:size-7 group-data-[collapsible=icon]:size-8"
+                />
+              </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

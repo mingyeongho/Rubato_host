@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react-swc";
 import { federation } from "@module-federation/vite";
 import tailwindcss from "@tailwindcss/vite";
@@ -10,8 +11,12 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      react(),
       tailwindcss(),
+      tanstackRouter({
+        target: "react",
+        autoCodeSplitting: true,
+      }),
+      react(),
       federation({
         name: "host",
         remotes: {
