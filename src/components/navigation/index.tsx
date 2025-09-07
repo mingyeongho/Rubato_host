@@ -10,6 +10,7 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "../ui/sidebar";
+import { Link } from "@tanstack/react-router";
 
 const items = [
   {
@@ -26,7 +27,7 @@ const Navigation = () => {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" tooltip="홈" asChild>
-              <a href="/">
+              <Link to="/">
                 <img
                   src="./logo.webp"
                   alt="rubato logo"
@@ -35,7 +36,7 @@ const Navigation = () => {
                   height={30}
                   className="me-1 rounded-[5px] transition-all group-data-collapsible:size-7 group-data-[collapsible=icon]:size-8"
                 />
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -50,10 +51,10 @@ const Navigation = () => {
                 return (
                   <SidebarMenuItem key={title}>
                     <SidebarMenuButton asChild tooltip={title}>
-                      <a href={url}>
+                      <Link to={url}>
                         <item.icon />
                         <span>{title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );

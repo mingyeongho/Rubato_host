@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 const Reviews = lazy(() => import("remote/reviews"));
 
@@ -8,5 +9,11 @@ export const Route = createFileRoute("/reviews")({
 });
 
 function RouteComponent() {
-  return <Reviews />;
+  return (
+    <ErrorBoundary fallback={<div>Error</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Reviews />
+      </Suspense>
+    </ErrorBoundary>
+  );
 }
