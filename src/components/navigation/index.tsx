@@ -9,6 +9,7 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
+  useSidebar,
 } from "../ui/sidebar";
 import { Link } from "@tanstack/react-router";
 
@@ -21,13 +22,26 @@ const items = [
 ];
 
 const Navigation = () => {
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  const closeSidebar = () => {
+    setOpenMobile(false);
+  };
+
   return (
     <Sidebar collapsible="icon" variant="inset" side="left">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" tooltip="홈" asChild>
-              <Link to="/">
+              <Link
+                to="/"
+                onClick={() => {
+                  if (isMobile) {
+                    closeSidebar();
+                  }
+                }}
+              >
                 <img
                   src="./logo.webp"
                   alt="rubato logo"
@@ -51,7 +65,14 @@ const Navigation = () => {
                 return (
                   <SidebarMenuItem key={title}>
                     <SidebarMenuButton asChild tooltip={title}>
-                      <Link to={url}>
+                      <Link
+                        to={url}
+                        onClick={() => {
+                          if (isMobile) {
+                            closeSidebar();
+                          }
+                        }}
+                      >
                         <item.icon />
                         <span>{title}</span>
                       </Link>
